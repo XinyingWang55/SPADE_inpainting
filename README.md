@@ -1,3 +1,6 @@
+## Networks
+![image](https://github.com/XinyingWang55/SPADE_inpainting/others/network.png)
+
 ## Installation
 This code requires PyTorch 1.0 and python 3+. Please install dependencies by
 ```bash
@@ -78,5 +81,11 @@ The pretrain model of FFHQ
 - `options/`: creates option lists using `argparse` package. More individuals are dynamically added in other files as well. Please see the section below.
 - `data/`: defines the class for loading images and label maps.
 
+## Results
+![image](https://github.com/XinyingWang55/SPADE_inpainting/others/results.png)
+
+
 ## Acknowledgments
 This code borrows heavily from SPADE(https://github.com/NVlabs/SPADE)
+
+
