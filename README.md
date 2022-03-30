@@ -1,5 +1,5 @@
 ## Networks
-![image](https://github.com/XinyingWang55/SPADE_inpainting/others/network.png)
+![image](others/network.png)
 
 ## Installation
 This code requires PyTorch 1.0 and python 3+. Please install dependencies by
@@ -82,7 +82,7 @@ The pretrain model of FFHQ
 - `data/`: defines the class for loading images and label maps.
 
 ## Results
-![image](https://github.com/XinyingWang55/SPADE_inpainting/others/results.png)
+![image](others/result.png)
 
 
 ## Acknowledgments
