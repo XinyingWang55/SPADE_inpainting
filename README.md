@@ -82,7 +82,7 @@ The pretrain model of FFHQ
 - `data/`: defines the class for loading images and label maps.
 
 ## Results
-![image](others/result.png)
+![image](others/results.png)
 
 
 ## Acknowledgments
