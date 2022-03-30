@@ -52,6 +52,9 @@ python train.py --name train_place --dataset_mode custom --image /data/xinying/i
 ## Test
 1. Download pretrained model and put them in ./checkpoints.
 https://drive.google.com/drive/folders/1az6lX_C-W-Au9dCzup-bKU0RXpL-iTb5?usp=sharing
+ 
+The pretrained model of FFHQ performs 40 epochs training(no enough but can produce no bad inpainting result).
+Due to the limit time and large dataset size, the pretrained model of Places only performs 1 epochs training.
 
 2. Run test
 To test on FFHQ
