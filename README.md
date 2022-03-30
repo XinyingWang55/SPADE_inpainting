@@ -50,7 +50,10 @@ python train.py --name train_place --dataset_mode custom --image /data/xinying/i
 - In training stage, `--no_mask` should be specified, and the mask will be automatically generated.
 
 ## Test
+1. Download pretrained model and put them in ./checkpoints.
+https://drive.google.com/drive/folders/1az6lX_C-W-Au9dCzup-bKU0RXpL-iTb5?usp=sharing
 
+2. Run test
 To test on FFHQ
 ```bash
 python test.py --dataset_mode custom --image /train/xinying/inpainting/test/FFHQ/test/ --label_dir /train/xinying/inpainting/test/FFHQ/test_seg --mask_dir /train/xinying/inpainting/test/FFHQ/test_mask --label_nc 19 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_ffhq
