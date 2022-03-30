@@ -29,10 +29,6 @@ Places:
 
 New models can be trained with the following commands.
 
-1. Prepare dataset. To train on the datasets shown in the paper, you can download the datasets and use `--dataset_mode` option, which will choose which subclass of `BaseDataset` is loaded. For custom datasets, the easiest way is to use `./data/custom_dataset.py` by specifying the option `--dataset_mode custom`, along with `--label_dir [path_to_labels] --image_dir [path_to_images]`. You also need to specify options such as `--label_nc` for the number of label classes in the dataset, `--contain_dontcare_label` to specify whether it has an unknown label, or `--no_instance` to denote the dataset doesn't have instance maps.
-
-2. Train.
-
 To train on FFHQ
 ```bash
 python train.py --name train_ffhq --dataset_mode custom --image /train/xinying/inpainting/FFHQ/image --label_dir /train/xinying/inpainting/FFHQ/seg --label_nc 19 --gpu 1 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask --no_flip 
