@@ -16,10 +16,12 @@ cd ../../
 In the case of FFHQ and Places, we put a few sample images in this code repo, please see ./datasets/.
 
 **Preparing FFHQ and Places Dataset**. 
+
+FFHQ:
 1. We download FFHQ dataset with the Kaggle command: kaggle datasets download -d rahulbhalley/ffhq-1024x1024
 2. resize images into 512x512 and extract segmentation maps
 
-
+Places:
 1. we download Places with the link: http://data.csail.mit.edu/places/places365/train_large_places365challenge.tar
 2. extract segmentation maps
 
@@ -33,7 +35,7 @@ New models can be trained with the following commands.
 
 To train on FFHQ
 ```bash
-python train.py --name train_ffhq --dataset_mode custom --image /train/xinying/inpainting/face/image --label_dir /train/xinying/inpainting/face/seg --label_nc 19 --gpu 1 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask --no_flip 
+python train.py --name train_ffhq --dataset_mode custom --image /train/xinying/inpainting/FFHQ/image --label_dir /train/xinying/inpainting/FFHQ/seg --label_nc 19 --gpu 1 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask --no_flip 
 ``` 
 
 To train on Places
@@ -41,12 +43,12 @@ To train on Places
 python train.py --name train_place --dataset_mode custom --image /data/xinying/inpainting/place/data_large --label_dir /data/xinying/inpainting/place/seg --label_nc 182 --gpu  0 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask 
 ``` 
 
-Using `--name` to specify the folder to store training info
-Using `--label_nc` to specify the number of segmentation class
-Using `--image` to specify the image path
-Using `--label_dir` to specify the segmentation map path
-If you want to use the second and third GPUs for example, use `--gpu_ids 1,2`.
-In training stage, `--no_mask` should be specified, and the mask will be automatically generated.
+- Using `--name` to specify the folder to store training info
+- Using `--label_nc` to specify the number of segmentation class
+- Using `--image` to specify the image path
+- Using `--label_dir` to specify the segmentation map path
+- If you want to use the second and third GPUs for example, use `--gpu_ids 1,2`.
+- In training stage, `--no_mask` should be specified, and the mask will be automatically generated.
 
 ## Test
 
@@ -65,9 +67,11 @@ python test.py --dataset_mode custom --image /train/xinying/inpainting/test/Plac
 ```bash
 python test.py --dataset_mode custom --image /train/xinying/inpainting/val/Places/val/ --label_dir /train/xinying/inpainting/val/Places/val_seg --mask_dir /train/xinying/inpainting/val/Places/val_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place0
 ```
-Using `--image` to specify the image path
-Using `--label_dir` to specify the segmentation map path
-Using `--mask_dir` to specify the binary mask path
+- Using `--image` to specify the image path
+- Using `--label_dir` to specify the segmentation map path
+- Using `--mask_dir` to specify the binary mask path
+
+The pretrain model of FFHQ
 
 ## Code Structure
 
