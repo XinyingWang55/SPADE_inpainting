@@ -39,7 +39,7 @@ python train.py --name train_ffhq --dataset_mode custom --image /train/xinying/i
 
 To train on Places
 ``` 
-python train.py --name train_place --dataset_mode custom --image /data/xinying/inpainting/place/data_large --label_dir /data/xinying/inpainting/place/seg --label_nc 182 --gpu  0 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask 
+python train.py --name train_places --dataset_mode custom --image /data/xinying/inpainting/place/data_large --label_dir /data/xinying/inpainting/place/seg --label_nc 182 --gpu  0 --nThreads 1 --batchSize 4 --netG spadepix2pixhd --no_instance --no_mask 
 ``` 
 
 - Using `--name` to specify the folder to store training info
@@ -67,16 +67,15 @@ python test.py --dataset_mode custom --image /train/xinying/inpainting/val/FFHQ/
 
 To test on Places
 ```bash
-python test.py --dataset_mode custom --image /train/xinying/inpainting/test/Places/test/ --label_dir /train/xinying/inpainting/test/Places/test_seg --mask_dir /train/xinying/inpainting/test/Places/test_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place
+python test.py --dataset_mode custom --image /train/xinying/inpainting/test/Places/test/ --label_dir /train/xinying/inpainting/test/Places/test_seg --mask_dir /train/xinying/inpainting/test/Places/test_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_places
 ```
 ```bash
-python test.py --dataset_mode custom --image /train/xinying/inpainting/val/Places/val/ --label_dir /train/xinying/inpainting/val/Places/val_seg --mask_dir /train/xinying/inpainting/val/Places/val_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place
+python test.py --dataset_mode custom --image /train/xinying/inpainting/val/Places/val/ --label_dir /train/xinying/inpainting/val/Places/val_seg --mask_dir /train/xinying/inpainting/val/Places/val_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_places
 ```
 - Using `--image` to specify the image path
 - Using `--label_dir` to specify the segmentation map path
 - Using `--mask_dir` to specify the binary mask path
 
-The pretrain model of FFHQ
 
 ## Code Structure
 
