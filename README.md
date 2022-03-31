@@ -22,11 +22,11 @@ In the case of FFHQ and Places, we put a few sample images in this code repo, pl
 
 FFHQ:
 1. We download FFHQ dataset with the Kaggle command: kaggle datasets download -d rahulbhalley/ffhq-1024x1024
-2. resize images into 512x512 and extract segmentation maps
+2. resize images into 512x512 and extract segmentation maps using https://github.com/affromero/NTIRE22_Inpainting/blob/main/evaluation/run_ffhq_deeplab.py
 
 Places:
 1. we download Places with the link: http://data.csail.mit.edu/places/places365/train_large_places365challenge.tar
-2. extract segmentation maps
+2. extract segmentation maps using https://github.com/affromero/NTIRE22_Inpainting/blob/main/evaluation/run_coco_deeplab.py
 
 ## Training New Models
 
@@ -51,7 +51,7 @@ python train.py --name train_place --dataset_mode custom --image /data/xinying/i
 
 ## Test
 1. Download pretrained model and put them in ./checkpoints.
-https://drive.google.com/drive/folders/1az6lX_C-W-Au9dCzup-bKU0RXpL-iTb5?usp=sharing
+https://drive.google.com/drive/folders/13NZP4_RAlXguRQnu6SezERnUSryH-P3P?usp=sharing
  
 The pretrained model of FFHQ performs 40 epochs training(no enough but can produce no bad inpainting result).
 Due to the limit time and large dataset size, the pretrained model of Places only performs 1 epochs training.
@@ -62,7 +62,7 @@ To test on FFHQ
 python test.py --dataset_mode custom --image /train/xinying/inpainting/test/FFHQ/test/ --label_dir /train/xinying/inpainting/test/FFHQ/test_seg --mask_dir /train/xinying/inpainting/test/FFHQ/test_mask --label_nc 19 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_ffhq
 ```
 ```bash
-python test.py --dataset_mode custom --image /train/xinying/inpainting/val/FFHQ/val/ --label_dir /train/xinying/inpainting/val/FFHQ/val_seg --mask_dir /train/xinying/inpainting/val/FFHQ/val_mask --label_nc 19 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train4
+python test.py --dataset_mode custom --image /train/xinying/inpainting/val/FFHQ/val/ --label_dir /train/xinying/inpainting/val/FFHQ/val_seg --mask_dir /train/xinying/inpainting/val/FFHQ/val_mask --label_nc 19 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_ffhq
 ```
 
 To test on Places
@@ -70,7 +70,7 @@ To test on Places
 python test.py --dataset_mode custom --image /train/xinying/inpainting/test/Places/test/ --label_dir /train/xinying/inpainting/test/Places/test_seg --mask_dir /train/xinying/inpainting/test/Places/test_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place
 ```
 ```bash
-python test.py --dataset_mode custom --image /train/xinying/inpainting/val/Places/val/ --label_dir /train/xinying/inpainting/val/Places/val_seg --mask_dir /train/xinying/inpainting/val/Places/val_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place0
+python test.py --dataset_mode custom --image /train/xinying/inpainting/val/Places/val/ --label_dir /train/xinying/inpainting/val/Places/val_seg --mask_dir /train/xinying/inpainting/val/Places/val_mask --label_nc 182 --gpu 0 --batchSize 1 --netG spadepix2pixhd --no_instance --checkpoints_dir checkpoints --name train_place
 ```
 - Using `--image` to specify the image path
 - Using `--label_dir` to specify the segmentation map path
